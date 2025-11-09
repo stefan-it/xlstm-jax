@@ -37,6 +37,7 @@ class DatasetNameToArrayRecordsPath(enum.StrEnum):
     SlimPajama6B = "/nfs-gpu/xlstm/data/array_records/DKYoon_SlimPajama-6B"
     SlimPajama627B = "/nfs-gpu/xlstm/data/array_records/cerebras_SlimPajama-627B"
     DCLM = "/nfs-gpu/xlstm/data/array_records/mlfoundations_dclm-baseline-1.0-parquet-split"
+    NANOCHAT = "/home/stefan/Data/nanochat-german-xlstm-data/_home_stefan_Data/nanochat-german-data-split"
 
 
 def preprocess_validation_set(
@@ -195,6 +196,10 @@ if __name__ == "__main__":
     if args.tokenizer_path == "gpt2":
         eod_token_id = 50256
     elif args.tokenizer_path == "EleutherAI/gpt-neox-20b":
+        eod_token_id = 0
+    elif args.tokenizer_path == "LSX-UniWue/LLaMmlein_120M":
+        eod_token_id = 2
+    elif args.tokenizer_path == "stefan-it/xlstm-german-164m-triton-config":
         eod_token_id = 0
     else:
         raise NotImplementedError(f"Tokenizer {args.tokenizer_path} not implemented. Please add the EOD token ID.")
