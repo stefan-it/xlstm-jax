@@ -2,8 +2,9 @@ defaults:
   - model_checkpointing_schema
   - _self_
 
-every_n_epochs: 1
+#every_n_epochs: 1
+every_n_steps: 1000
 monitor: perplexity
-max_to_keep: 2
+max_to_keep: 100
 save_optimizer_state: true
 enable_async_checkpointing: true
