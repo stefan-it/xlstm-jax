@@ -292,6 +292,8 @@ if __name__ == "__main__":
     )
     parser.add_argument("--hf_data_name", type=str, default=None, help="Huggingface dataset name.")
     parser.add_argument("--hf_data_dir", type=str, default=None, help="Huggingface dataset directory.")
+    parser.add_argument("--base_out_path", type=Path, default=None, help="Base output directory.")
+    parser.add_argument("--hf_cache_dir", type=Path, default=None, help="Hugginface cache directory.")
     parser.add_argument("--splits", type=str, nargs="+", default=["train"], help="Dataset splits to convert.")
     parser.add_argument("--num_processes", type=int, default=None, help="Number of workers used to convert.")
     parser.add_argument("--num_hf_processes", type=int, default=None, help="Number of workers used for download.")
@@ -306,5 +308,7 @@ if __name__ == "__main__":
         splits=args.splits,
         num_processes=args.num_processes if args.num_processes is not None else min(len(os.sched_getaffinity(0)), 128),
         num_hf_processes=args.num_hf_processes,
+        base_out_path=args.base_out_path,
+        hf_cache_dir=args.hf_cache_dir,
         data_column_name=args.data_column_name,
     )
