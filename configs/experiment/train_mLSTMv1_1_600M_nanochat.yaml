@@ -8,11 +8,11 @@ defaults:
   - _self_
 
 # specify the deltas from the defaults:
-task_name: SPECIFY_TASK_NAME
-batch_size_per_device: 16
+task_name: nanochat
+batch_size_per_device: 8
 context_length: 8192
 num_epochs: 1000
-num_train_steps: 8800
+num_train_steps: 36000
 lr: 0.002
 
 trainer:
