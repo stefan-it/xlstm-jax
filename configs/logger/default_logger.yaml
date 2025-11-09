@@ -23,7 +23,7 @@ tb_flush_secs: 120
 
 # WandBLoggerConfig
 wb_project: xlstm_jax
-wb_entity: xlstm
+wb_entity: stefan-it
 wb_name: ${logging_name}_gbs${global_batch_size}
 wb_tags:
   - ${task_name}
