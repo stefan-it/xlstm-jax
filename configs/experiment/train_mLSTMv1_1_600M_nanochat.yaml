@@ -1,0 +1,22 @@
+# @package _global_
+defaults:
+  - /data@data_train.ds1: nanochat_arrayrecord_train
+  - /data@data_eval.ds1: nanochat_arrayrecord_eval_preprocessed
+  - override /parallel: mLSTMv1_600M
+  - override /model: mLSTMv1_600M
+  - override /optimizer: adamw
+  - _self_
+
+# specify the deltas from the defaults:
+task_name: SPECIFY_TASK_NAME
+batch_size_per_device: 16
+context_length: 8192
+num_epochs: 1000
+num_train_steps: 8800
+lr: 0.002
+
+trainer:
+  gradient_accumulate_steps: 1
+
+checkpointing:
+  monitor: nanochat
