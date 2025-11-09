@@ -21,12 +21,26 @@ LOGGER = logging.getLogger(__name__)
 
 class DatasetNameToArrayRecordsPath(enum.StrEnum):
     DCLM = "/nfs-gpu/xlstm/data/array_records/mlfoundations_dclm-baseline-1.0-parquet"
+    NANOCHAT = "/home/stefan/Data/nanochat-german-xlstm-data/_home_stefan_Data/nanochat-german-data"
 
 
 class DatasetNameToSize(enum.IntEnum):
     """The number of examples in each dataset. Required because loading dataset in main and sub-processes gets stuck"""
 
     DCLM = 2_949_254_346
+
+    """
+    In [1]: from array_record.python.array_record_data_source import ArrayRecordDataSource                                                                                               
+    In [6]: from pathlib import Path
+    In [7]: train_files = [str(file) for file in Path("/home/stefan/Data/nanochat-german-xlstm-data/_home_stefan_Data/nanochat-german-data/train/").iterdir() if file.name.endswith("arecord")]
+    In [9]: examples = 0
+    In [10]: for train_file in train_files:
+        ...:     source = ArrayRecordDataSource(train_file)
+        ...:     examples += len(source)
+    In [11]: examples
+    Out[11]: 14915584
+    """
+    NANOCHAT = 14_915_584
 
 
 SPLIT_FILES_FOLDER = "split_indices"
