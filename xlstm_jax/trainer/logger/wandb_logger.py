@@ -33,7 +33,7 @@ class WandBLoggerConfig(LoggerToolsConfig):
         log_dir: The directory to log to.
     """
 
-    wb_entity: str = "xlstm"
+    wb_entity: str = "stefan-it"
     wb_project: str = "xlstm_nxai"
     wb_host: str = "https://api.wandb.ai"
     wb_key: str | None = None
